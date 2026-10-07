@@ -21,6 +21,7 @@ import { MortgageCalculator } from './components/MortgageCalculator';
 import { ResaleComparison } from './components/ResaleComparison';
 import { FutureLandUse } from './components/FutureLandUse';
 import { GrowthTimeline } from './components/GrowthTimeline';
+import { OneMapViewer } from './components/OneMapViewer';
 import { ApiHealthModal } from './components/ApiHealthModal';
 import { PdfExportModal } from './components/PdfExportModal';
 import { Building2, Sparkles, Shield, ArrowUpRight, CheckCircle2, Info } from 'lucide-react';
@@ -148,6 +149,13 @@ export default function App() {
         {activeTab === 'valuation' && (
           <div className="space-y-6 animate-in fade-in duration-200">
             <ValuationDashboard valInputs={valInputs} valResults={valResults} />
+          </div>
+        )}
+
+        {/* Tab: SLA OneMap & Nearby Amenities Analysis */}
+        {activeTab === 'onemap' && (
+          <div className="space-y-6 animate-in fade-in duration-200">
+            <OneMapViewer selectedProject={selectedProject} />
           </div>
         )}
 

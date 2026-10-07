@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { FileDown, Activity, Sparkles, Building2, Calculator, BarChart3, Compass, TrendingUp } from 'lucide-react';
+import { FileDown, Activity, Sparkles, Building2, Calculator, BarChart3, Compass, TrendingUp, MapPin } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: string;
@@ -23,6 +23,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const tabs = [
     { id: 'valuation', label: 'MOP Valuation', icon: Building2 },
+    { id: 'onemap', label: 'SLA OneMap & Amenities', icon: MapPin },
     { id: 'mortgage', label: 'Mortgage Calculator', icon: Calculator },
     { id: 'resale', label: 'Neighbor Resale Comps', icon: BarChart3 },
     { id: 'landuse', label: 'URA Future Land Use', icon: Compass },

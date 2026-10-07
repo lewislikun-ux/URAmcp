@@ -218,6 +218,40 @@ export const ApiHealthModal: React.FC<ApiHealthModalProps> = ({
               </div>
             )}
           </div>
+
+          {/* OneMap Setup & Diagnostics Box */}
+          <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-3">
+            <div className="flex items-center justify-between">
+              <h4 className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                <Key className="w-3.5 h-3.5 text-slate-700" />
+                SLA OneMap API Keys Configuration
+              </h4>
+              <span className="text-[11px] font-semibold text-teal-700 bg-teal-50 px-2 py-0.5 rounded border border-teal-200">
+                SLA Public Tiles: Active
+              </span>
+            </div>
+
+            <p className="text-xs text-slate-600 leading-relaxed">
+              OneMap vector and raster tiles stream directly from Singapore Land Authority servers. To enable advanced spatial searches and reverse geocoding in Vercel, add:
+            </p>
+
+            <div className="p-2.5 rounded bg-slate-900 text-slate-100 font-mono text-xs space-y-1">
+              <div>ONEMAP_EMAIL="your_email@domain.com"</div>
+              <div>ONEMAP_PASSWORD="your_password"</div>
+            </div>
+
+            <div className="pt-1 flex items-center gap-2">
+              <a
+                href="https://www.onemap.gov.sg/apidocs/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-3 py-1.5 rounded-md bg-white border border-slate-200 text-slate-700 text-xs font-medium hover:bg-slate-50 transition-colors inline-flex items-center gap-1"
+              >
+                <span>SLA OneMap Documentation</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* Footer */}

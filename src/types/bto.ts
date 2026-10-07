@@ -11,6 +11,17 @@ export type FloorLevelTier = 'low' | 'mid' | 'high' | 'sky';
 
 export type FacingType = 'north_south' | 'unblocked_park_water' | 'east_morning_sun' | 'west_afternoon_sun' | 'expressway_facing';
 
+export interface BtoAmenity {
+  id: string;
+  name: string;
+  category: 'mrt' | 'school' | 'mall' | 'park' | 'healthcare' | 'headwind';
+  type: 'positive' | 'negative';
+  distanceMeters: number;
+  impactPct: number; // e.g. +4.5% or -2.0%
+  description: string;
+  coordinates: [number, number]; // [latitude, longitude]
+}
+
 export interface BtoProject {
   id: string;
   name: string;
@@ -22,6 +33,8 @@ export interface BtoProject {
   clawbackPct: number; // 0 for Standard, 6-8 for Plus, 9-12 for Prime
   description: string;
   mrtProximity: string;
+  coordinates: [number, number]; // [latitude, longitude]
+  surroundingAmenities: BtoAmenity[];
   flatTypes: {
     [key in FlatType]?: {
       sqm: number;

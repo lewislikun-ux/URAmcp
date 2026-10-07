@@ -36,6 +36,9 @@ export default async function handler(req, res) {
   const startTime = Date.now();
   const uraKeyPresent = Boolean(process.env.URA_ACCESS_KEY || process.env.URA_API_KEY);
   const uraTokenPresent = Boolean(process.env.URA_TOKEN);
+  const oneMapKeyPresent = Boolean(
+    (process.env.ONEMAP_EMAIL && process.env.ONEMAP_PASSWORD) || process.env.ONEMAP_ACCESS_TOKEN
+  );
 
   try {
     const memory = process.memoryUsage ? process.memoryUsage() : null;
@@ -68,6 +71,19 @@ export default async function handler(req, res) {
           setupGuide: uraKeyPresent
             ? 'URA API key detected in environment variables.'
             : 'Add URA_ACCESS_KEY under Vercel Settings > Environment Variables or in .env.local',
+        },
+        oneMap: {
+          configured: oneMapKeyPresent,
+          provider: 'Singapore Land Authority (SLA)',
+          publicTilesActive: true,
+          authMode: process.env.ONEMAP_ACCESS_TOKEN
+            ? 'STATIC_TOKEN'
+            : process.env.ONEMAP_EMAIL
+            ? 'EMAIL_CREDENTIALS'
+            : 'PUBLIC_TILES_ONLY',
+          setupGuide: oneMapKeyPresent
+            ? 'OneMap developer credentials active.'
+            : 'Add ONEMAP_EMAIL & ONEMAP_PASSWORD or ONEMAP_ACCESS_TOKEN in Vercel to unlock geocoding.',
         },
         hdbResaleDataService: {
           status: 'CONNECTED',

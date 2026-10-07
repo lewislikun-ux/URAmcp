@@ -17,6 +17,10 @@ const apiPlugin = () => ({
           const uraModule = await import('./api/ura.js');
           return await uraModule.default(req, res);
         }
+        if (url.pathname === '/api/onemap' || url.pathname === '/api/onemap.js') {
+          const onemapModule = await import('./api/onemap.js');
+          return await onemapModule.default(req, res);
+        }
       } catch (err) {
         console.error('API middleware error:', err);
       }
