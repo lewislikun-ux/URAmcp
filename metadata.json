@@ -1,0 +1,6 @@
+{
+  "name": "SG BTO MOP Valuation & Growth Intelligence",
+  "description": "Singapore BTO valuation forecaster, post-MOP price estimator, mortgage calculator, resale comparison, and URA future land use analysis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
